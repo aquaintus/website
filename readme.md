@@ -2,8 +2,8 @@
 *the aquaintus website.*
 
 ##Contributors 
-*Alexander O'Neill
-*Emmanuel Smith
+* Alexander O'Neill
+* Emmanuel Smith
 
 ##license
 copyright &copy; 2011 aquaintus
