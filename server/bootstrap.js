@@ -2,38 +2,25 @@
 Meteor.startup(function () {
   if (Lists.find().count() === 0) {
     var data = [
-      {name: "Meteor Principles",
+      {name: "Aquaintus",
        contents: [
-         ["Data on the Wire", "Simplicity", "Better UX", "Fun"],
-         ["One Language", "Simplicity", "Fun"],
-         ["Database Everywhere", "Simplicity"],
-         ["Latency Compensation", "Better UX"],
-         ["Full Stack Reactivity", "Better UX", "Fun"],
-         ["Embrace the Ecosystem", "Fun"],
-         ["Simplicity Equals Productivity", "Simplicity", "Fun"]
+         ["Alex", "Formula 1", "Sushi"],
+         ["Cassie", "Bunnies"],
+         ["Emmauel", "Everything"]
        ]
       },
-      {name: "Languages",
+      {name: "Work",
        contents: [
-         ["Lisp", "GC"],
-         ["C", "Linked"],
-         ["C++", "Objects", "Linked"],
-         ["Python", "GC", "Objects"],
-         ["Ruby", "GC", "Objects"],
-         ["JavaScript", "GC", "Objects"],
-         ["Scala", "GC", "Objects"],
-         ["Erlang", "GC"],
-         ["6502 Assembly", "Linked"]
-         ]
+         ["Alex", "Formula 1", "Sushi"],
+         ["Cassie", "Bunnies"],
+         ["Emmauel", "Everything"]
+       ]
       },
-      {name: "Favorite Scientists",
+      {name: "University",
        contents: [
-         ["Ada Lovelace", "Computer Science"],
-         ["Grace Hopper", "Computer Science"],
-         ["Marie Curie", "Physics", "Chemistry"],
-         ["Carl Friedrich Gauss", "Math", "Physics"],
-         ["Nikola Tesla", "Physics"],
-         ["Claude Shannon", "Math", "Computer Science"]
+         ["Alex", "Formula 1", "Sushi"],
+         ["Cassie", "Bunnies"],
+         ["Emmauel", "Everything"]
        ]
       }
     ];
