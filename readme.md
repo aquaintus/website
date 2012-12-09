@@ -3,7 +3,7 @@
 
 ##Contributors 
 * Alexander O'Neill
-* Emmanuel Smith
+* Emmanuel Bob
 
 ##license
 copyright &copy; 2011 aquaintus
