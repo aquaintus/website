@@ -1,6 +1,10 @@
 #[aquaintus][1] ![build status.][2]
 *the aquaintus website.*
 
+##Contributors 
+*Alexander O'Neill
+*Emmanuel Smith
+
 ##license
 copyright &copy; 2011 aquaintus
 
