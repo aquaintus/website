@@ -210,7 +210,7 @@ Template.contact_item.events({
     Session.set('editing_itemname', this._id);
     Meteor.flush(); // update DOM before focus
     activateInput(tmpl.find("#contact-input"));
-  },
+  },s
 
   'click .remove': function (evt) {
     var tag = this.tag;
@@ -219,7 +219,7 @@ Template.contact_item.events({
     evt.target.parentNode.style.opacity = 0;
     // wait for CSS animation to finish
     Meteor.setTimeout(function () {
-      Contactss.update({_id: id}, {$pull: {tags: tag}});
+      Contacts.update({_id: id}, {$pull: {tags: tag}});
     }, 300);
   }
 });
@@ -240,7 +240,7 @@ Template.contact_item.events(okCancelEvents(
   '#edittag-input',
   {
     ok: function (value) {
-      Contactss.update(this._id, {$addToSet: {tags: value}});
+      Contacts.update(this._id, {$addToSet: {tags: value}});
       Session.set('editing_addtag', null);
     },
     cancel: function () {
