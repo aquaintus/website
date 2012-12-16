@@ -2,7 +2,7 @@
 
 // Define Minimongo collections to match server/publish.js.
 Lists = new Meteor.Collection("lists");
-Todos = new Meteor.Collection("todos");
+Contacts = new Meteor.Collection("contacts");
 
 // ID of currently selected list
 Session.set('list_id', null);
@@ -10,13 +10,13 @@ Session.set('list_id', null);
 // Name of currently selected tag for filtering
 Session.set('tag_filter', null);
 
-// When adding tag to a todo, ID of the todo
+// When adding tag to a contact, ID of the contact
 Session.set('editing_addtag', null);
 
 // When editing a list name, ID of the list
 Session.set('editing_listname', null);
 
-// When editing todo text, ID of the todo
+// When editing contact text, ID of the contact
 Session.set('editing_itemname', null);
 
 // Subscribe to 'lists' collection on startup.
@@ -29,11 +29,11 @@ Meteor.subscribe('lists', function () {
   }
 });
 
-// Always be subscribed to the todos for the selected list.
+// Always be subscribed to the contacts for the selected list.
 Meteor.autosubscribe(function () {
   var list_id = Session.get('list_id');
   if (list_id)
-    Meteor.subscribe('todos', list_id);
+    Meteor.subscribe('contacts', list_id);
 });
 
 
@@ -89,7 +89,10 @@ Template.lists.events({
     Session.set('editing_listname', this._id);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
     activateInput(tmpl.find("#list-name-input"));
-  }
+  },
+  'click .destroy_list': function () {
+    Lists.remove(this._id);
+  },
 });
 
 // Attach events to keydown, keyup, and blur on "New list" input box.
@@ -127,18 +130,18 @@ Template.lists.editing = function () {
   return Session.equals('editing_listname', this._id);
 };
 
-////////// Todos //////////
+////////// Contacts //////////
 
-Template.todos.any_list_selected = function () {
+Template.contacts.any_list_selected = function () {
   return !Session.equals('list_id', null);
 };
 
-Template.todos.events(okCancelEvents(
-  '#new-todo',
+Template.contacts.events(okCancelEvents(
+  '#new-contact',
   {
     ok: function (text, evt) {
       var tag = Session.get('tag_filter');
-      Todos.insert({
+      Contacts.insert({
         text: text,
         list_id: Session.get('list_id'),
         done: false,
@@ -149,8 +152,8 @@ Template.todos.events(okCancelEvents(
     }
   }));
 
-Template.todos.todos = function () {
-  // Determine which todos to display in main pane,
+Template.contacts.contacts = function () {
+  // Determine which contacts to display in main pane,
   // selected based on list_id and tag_filter.
 
   var list_id = Session.get('list_id');
@@ -162,39 +165,39 @@ Template.todos.todos = function () {
   if (tag_filter)
     sel.tags = tag_filter;
 
-  return Todos.find(sel, {sort: {timestamp: 1}});
+  return Contacts.find(sel, {sort: {timestamp: 1}});
 };
 
-Template.todo_item.tag_objs = function () {
-  var todo_id = this._id;
+Template.contact_item.tag_objs = function () {
+  var contact_id = this._id;
   return _.map(this.tags || [], function (tag) {
-    return {todo_id: todo_id, tag: tag};
+    return {contact_id: contact_id, tag: tag};
   });
 };
 
-Template.todo_item.done_class = function () {
+Template.contact_item.done_class = function () {
   return this.done ? 'done' : '';
 };
 
-Template.todo_item.done_checkbox = function () {
+Template.contact_item.done_checkbox = function () {
   return this.done ? 'checked="checked"' : '';
 };
 
-Template.todo_item.editing = function () {
+Template.contact_item.editing = function () {
   return Session.equals('editing_itemname', this._id);
 };
 
-Template.todo_item.adding_tag = function () {
+Template.contact_item.adding_tag = function () {
   return Session.equals('editing_addtag', this._id);
 };
 
-Template.todo_item.events({
+Template.contact_item.events({
   'click .check': function () {
-    Todos.update(this._id, {$set: {done: !this.done}});
+    Contacts.update(this._id, {$set: {done: !this.done}});
   },
 
   'click .destroy': function () {
-    Todos.remove(this._id);
+    Contacts.remove(this._id);
   },
 
   'click .addtag': function (evt, tmpl) {
@@ -203,29 +206,29 @@ Template.todo_item.events({
     activateInput(tmpl.find("#edittag-input"));
   },
 
-  'dblclick .display .todo-text': function (evt, tmpl) {
+  'dblclick .display .contact-text': function (evt, tmpl) {
     Session.set('editing_itemname', this._id);
     Meteor.flush(); // update DOM before focus
-    activateInput(tmpl.find("#todo-input"));
+    activateInput(tmpl.find("#contact-input"));
   },
 
   'click .remove': function (evt) {
     var tag = this.tag;
-    var id = this.todo_id;
+    var id = this.contact_id;
 
     evt.target.parentNode.style.opacity = 0;
     // wait for CSS animation to finish
     Meteor.setTimeout(function () {
-      Todos.update({_id: id}, {$pull: {tags: tag}});
+      Contactss.update({_id: id}, {$pull: {tags: tag}});
     }, 300);
   }
 });
 
-Template.todo_item.events(okCancelEvents(
-  '#todo-input',
+Template.contact_item.events(okCancelEvents(
+  '#contact-input',
   {
     ok: function (value) {
-      Todos.update(this._id, {$set: {text: value}});
+      Contacts.update(this._id, {$set: {text: value}});
       Session.set('editing_itemname', null);
     },
     cancel: function () {
@@ -233,11 +236,11 @@ Template.todo_item.events(okCancelEvents(
     }
   }));
 
-Template.todo_item.events(okCancelEvents(
+Template.contact_item.events(okCancelEvents(
   '#edittag-input',
   {
     ok: function (value) {
-      Todos.update(this._id, {$addToSet: {tags: value}});
+      Contactss.update(this._id, {$addToSet: {tags: value}});
       Session.set('editing_addtag', null);
     },
     cancel: function () {
@@ -247,13 +250,13 @@ Template.todo_item.events(okCancelEvents(
 
 ////////// Tag Filter //////////
 
-// Pick out the unique tags from all todos in current list.
+// Pick out the unique tags from all contacts in current list.
 Template.tag_filter.tags = function () {
   var tag_infos = [];
   var total_count = 0;
 
-  Todos.find({list_id: Session.get('list_id')}).forEach(function (todo) {
-    _.each(todo.tags, function (tag) {
+  Contacts.find({list_id: Session.get('list_id')}).forEach(function (contact) {
+    _.each(contact.tags, function (tag) {
       var tag_info = _.find(tag_infos, function (x) { return x.tag === tag; });
       if (! tag_info)
         tag_infos.push({tag: tag, count: 1});
@@ -288,7 +291,7 @@ Template.tag_filter.events({
 
 ////////// Tracking selected list in URL //////////
 
-var TodosRouter = Backbone.Router.extend({
+var ContactsRouter = Backbone.Router.extend({
   routes: {
     ":list_id": "main"
   },
@@ -301,7 +304,7 @@ var TodosRouter = Backbone.Router.extend({
   }
 });
 
-Router = new TodosRouter;
+Router = new ContactsRouter;
 
 Meteor.startup(function () {
   Backbone.history.start({pushState: true});

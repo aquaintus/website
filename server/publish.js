@@ -7,15 +7,15 @@ Meteor.publish('lists', function () {
 });
 
 
-// Todos -- {text: String,
+// Contacts -- {text: String,
 //           done: Boolean,
 //           tags: [String, ...],
 //           list_id: String,
 //           timestamp: Number}
-Todos = new Meteor.Collection("todos");
+Contacts = new Meteor.Collection("contacts");
 
 // Publish all items for requested list_id.
-Meteor.publish('todos', function (list_id) {
-  return Todos.find({list_id: list_id});
+Meteor.publish('contacts', function (list_id) {
+  return Contacts.find({list_id: list_id});
 });
 
