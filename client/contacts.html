@@ -12,25 +12,25 @@
   </div>
 
   <div id="side-pane">
-    {{> lists}}
+    {{> groups}}
   </div>
 </body>
 
-<template name="lists">
+<template name="groups">
   <div>
     <img class="logo" src="/aq.png" width="200" />
   </div>
-  <div id="lists">
-    {{#each lists}}
-      <div class="list {{selected}}">
+  <div id="groups">
+    {{#each groups}}
+      <div class="group {{selected}}">
         {{#if editing}}
           <div class="edit">
-            <input class="list-name-input" id="list-name-input" type="text" value="{{name}}" />
+            <input class="group-name-input" id="group-name-input" type="text" value="{{name}}" />
           </div>
         {{else}}
-          <div class="destroy_list"></div>
+          <div class="destroy_group"></div>
           <div class="display">
-            <a class="list-name {{name_class}}" href="/{{_id}}">
+            <a class="group-name {{name_class}}" href="/{{_id}}">
               {{name}}
             </a>
           </div>
@@ -38,18 +38,18 @@
       </div>
     {{/each}}
   </div>
-  <div id="createList">
-    <input type="text" id="new-list" placeholder="New Group" />
+  <div id="createGroup">
+    <input type="text" id="new-group" placeholder="New Group" />
   </div>
 </template>
 
 <template name="contacts">
-  {{#if any_list_selected}}
+  {{#if any_group_selected}}
   <div id="items-view">
     <div id="new-contact-box">
       <input type="text" id="new-contact" placeholder="New Contact" />
     </div>
-    <ul id="item-list">
+    <ul id="item-group">
       {{#each contacts}}
         {{> contact_item}}
       {{/each}}
@@ -93,7 +93,7 @@
 </template>
 
 <template name="tag_filter">
-  <div id="tag-filter" class="tag-list">
+  <div id="tag-filter" class="tag-group">
     <div class="label">Show:</div>
     {{#each tags}}
       <div class="tag {{selected}}">

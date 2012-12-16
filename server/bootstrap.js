@@ -1,6 +1,6 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
-  if (Lists.find().count() === 0) {
+  if (Groups.find().count() === 0) {
     var data = [
       {name: "Aquaintus",
        contents: [
@@ -27,10 +27,10 @@ Meteor.startup(function () {
 
     var timestamp = (new Date()).getTime();
     for (var i = 0; i < data.length; i++) {
-      var list_id = Lists.insert({name: data[i].name});
+      var group_id = Groups.insert({name: data[i].name});
       for (var j = 0; j < data[i].contents.length; j++) {
         var info = data[i].contents[j];
-        Contacts.insert({list_id: list_id,
+        Contacts.insert({group_id: group_id,
                       text: info[0],
                       timestamp: timestamp,
                       tags: info.slice(1)});

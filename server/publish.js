@@ -1,21 +1,21 @@
-// Lists -- {name: String}
-Lists = new Meteor.Collection("lists");
+// Groups -- {name: String}
+Groups = new Meteor.Collection("groups");
 
-// Publish complete set of lists to all clients.
-Meteor.publish('lists', function () {
-  return Lists.find();
+// Publish complete set of groups to all clients.
+Meteor.publish('groups', function () {
+  return Groups.find();
 });
 
 
 // Contacts -- {text: String,
 //           done: Boolean,
 //           tags: [String, ...],
-//           list_id: String,
+//           group_id: String,
 //           timestamp: Number}
 Contacts = new Meteor.Collection("contacts");
 
-// Publish all items for requested list_id.
-Meteor.publish('contacts', function (list_id) {
-  return Contacts.find({list_id: list_id});
+// Publish all items for requested group_id.
+Meteor.publish('contacts', function (group_id) {
+  return Contacts.find({group_id: group_id});
 });
 

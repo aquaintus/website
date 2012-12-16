@@ -1,11 +1,11 @@
 // Client-side JavaScript, bundled and sent to client.
 
 // Define Minimongo collections to match server/publish.js.
-Lists = new Meteor.Collection("lists");
+Groups = new Meteor.Collection("groups");
 Contacts = new Meteor.Collection("contacts");
 
-// ID of currently selected list
-Session.set('list_id', null);
+// ID of currently selected group
+Session.set('group_id', null);
 
 // Name of currently selected tag for filtering
 Session.set('tag_filter', null);
@@ -13,27 +13,27 @@ Session.set('tag_filter', null);
 // When adding tag to a contact, ID of the contact
 Session.set('editing_addtag', null);
 
-// When editing a list name, ID of the list
-Session.set('editing_listname', null);
+// When editing a group name, ID of the group
+Session.set('editing_groupname', null);
 
 // When editing contact text, ID of the contact
 Session.set('editing_itemname', null);
 
-// Subscribe to 'lists' collection on startup.
-// Select a list once data has arrived.
-Meteor.subscribe('lists', function () {
-  if (!Session.get('list_id')) {
-    var list = Lists.findOne({}, {sort: {name: 1}});
-    if (list)
-      Router.setList(list._id);
+// Subscribe to 'groups' collection on startup.
+// Select a group once data has arrived.
+Meteor.subscribe('groups', function () {
+  if (!Session.get('group_id')) {
+    var group = Groups.findOne({}, {sort: {name: 1}});
+    if (group)
+      Router.setGroup(group._id);
   }
 });
 
-// Always be subscribed to the contacts for the selected list.
+// Always be subscribed to the contacts for the selected group.
 Meteor.autosubscribe(function () {
-  var list_id = Session.get('list_id');
-  if (list_id)
-    Meteor.subscribe('contacts', list_id);
+  var group_id = Session.get('group_id');
+  if (group_id)
+    Meteor.subscribe('contacts', group_id);
 });
 
 
@@ -71,69 +71,69 @@ var activateInput = function (input) {
   input.select();
 };
 
-////////// Lists //////////
+////////// Groups //////////
 
-Template.lists.lists = function () {
-  return Lists.find({}, {sort: {name: 1}});
+Template.groups.groups = function () {
+  return Groups.find({}, {sort: {name: 1}});
 };
 
-Template.lists.events({
-  'mousedown .list': function (evt) { // select list
-    Router.setList(this._id);
+Template.groups.events({
+  'mousedown .group': function (evt) { // select group
+    Router.setGroup(this._id);
   },
-  'click .list': function (evt) {
+  'click .group': function (evt) {
     // prevent clicks on <a> from refreshing the page.
     evt.preventDefault();
   },
-  'dblclick .list': function (evt, tmpl) { // start editing list name
-    Session.set('editing_listname', this._id);
+  'dblclick .group': function (evt, tmpl) { // start editing group name
+    Session.set('editing_groupname', this._id);
     Meteor.flush(); // force DOM redraw, so we can focus the edit field
-    activateInput(tmpl.find("#list-name-input"));
+    activateInput(tmpl.find("#group-name-input"));
   },
-  'click .destroy_list': function () {
-    Lists.remove(this._id);
+  'click .destroy_group': function () {
+    Groups.remove(this._id);
   },
 });
 
-// Attach events to keydown, keyup, and blur on "New list" input box.
-Template.lists.events(okCancelEvents(
-  '#new-list',
+// Attach events to keydown, keyup, and blur on "New group" input box.
+Template.groups.events(okCancelEvents(
+  '#new-group',
   {
     ok: function (text, evt) {
-      var id = Lists.insert({name: text});
-      Router.setList(id);
+      var id = Groups.insert({name: text});
+      Router.setGroup(id);
       evt.target.value = "";
     }
   }));
 
-Template.lists.events(okCancelEvents(
-  '#list-name-input',
+Template.groups.events(okCancelEvents(
+  '#group-name-input',
   {
     ok: function (value) {
-      Lists.update(this._id, {$set: {name: value}});
-      Session.set('editing_listname', null);
+      Groups.update(this._id, {$set: {name: value}});
+      Session.set('editing_groupname', null);
     },
     cancel: function () {
-      Session.set('editing_listname', null);
+      Session.set('editing_groupname', null);
     }
   }));
 
-Template.lists.selected = function () {
-  return Session.equals('list_id', this._id) ? 'selected' : '';
+Template.groups.selected = function () {
+  return Session.equals('group_id', this._id) ? 'selected' : '';
 };
 
-Template.lists.name_class = function () {
+Template.groups.name_class = function () {
   return this.name ? '' : 'empty';
 };
 
-Template.lists.editing = function () {
-  return Session.equals('editing_listname', this._id);
+Template.groups.editing = function () {
+  return Session.equals('editing_groupname', this._id);
 };
 
 ////////// Contacts //////////
 
-Template.contacts.any_list_selected = function () {
-  return !Session.equals('list_id', null);
+Template.contacts.any_group_selected = function () {
+  return !Session.equals('group_id', null);
 };
 
 Template.contacts.events(okCancelEvents(
@@ -143,7 +143,7 @@ Template.contacts.events(okCancelEvents(
       var tag = Session.get('tag_filter');
       Contacts.insert({
         text: text,
-        list_id: Session.get('list_id'),
+        group_id: Session.get('group_id'),
         done: false,
         timestamp: (new Date()).getTime(),
         tags: tag ? [tag] : []
@@ -154,13 +154,13 @@ Template.contacts.events(okCancelEvents(
 
 Template.contacts.contacts = function () {
   // Determine which contacts to display in main pane,
-  // selected based on list_id and tag_filter.
+  // selected based on group_id and tag_filter.
 
-  var list_id = Session.get('list_id');
-  if (!list_id)
+  var group_id = Session.get('group_id');
+  if (!group_id)
     return {};
 
-  var sel = {list_id: list_id};
+  var sel = {group_id: group_id};
   var tag_filter = Session.get('tag_filter');
   if (tag_filter)
     sel.tags = tag_filter;
@@ -250,12 +250,12 @@ Template.contact_item.events(okCancelEvents(
 
 ////////// Tag Filter //////////
 
-// Pick out the unique tags from all contacts in current list.
+// Pick out the unique tags from all contacts in current group.
 Template.tag_filter.tags = function () {
   var tag_infos = [];
   var total_count = 0;
 
-  Contacts.find({list_id: Session.get('list_id')}).forEach(function (contact) {
+  Contacts.find({group_id: Session.get('group_id')}).forEach(function (contact) {
     _.each(contact.tags, function (tag) {
       var tag_info = _.find(tag_infos, function (x) { return x.tag === tag; });
       if (! tag_info)
@@ -289,18 +289,18 @@ Template.tag_filter.events({
   }
 });
 
-////////// Tracking selected list in URL //////////
+////////// Tracking selected group in URL //////////
 
 var ContactsRouter = Backbone.Router.extend({
   routes: {
-    ":list_id": "main"
+    ":group_id": "main"
   },
-  main: function (list_id) {
-    Session.set("list_id", list_id);
+  main: function (group_id) {
+    Session.set("group_id", group_id);
     Session.set("tag_filter", null);
   },
-  setList: function (list_id) {
-    this.navigate(list_id, true);
+  setGroup: function (group_id) {
+    this.navigate(group_id, true);
   }
 });
 

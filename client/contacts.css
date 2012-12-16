@@ -133,23 +133,23 @@ h3 {
     padding-left: 2px;
 }
 
-#lists .list {
+#groups .group {
     padding: 3px 6px;
 }
 
-#lists .selected {
+#groups .selected {
     padding: 2px 6px;
     background: #9be;
     font-weight: bold;
 }
 
-#lists .list-name {
+#groups .group-name {
     cursor: pointer;
     color: black;
     text-decoration: none;
 }
 
-#lists .list .destroy_list {
+#groups .group .destroy_group {
     cursor: pointer;
     position: relative;
     left: 150px;
@@ -158,11 +158,11 @@ h3 {
     width: 20px;
 }
 
-#lists .list:hover .destroy_list {
+#groups .group:hover .destroy_group {
     background: url('/destroy.png') no-repeat 0 0;
 }
 
-#lists .list .destroy_list:hover {
+#groups .group .destroy_group:hover {
     background-position: 0 -20px;
 }
 
@@ -195,7 +195,7 @@ h3 {
     margin-left: 5px;
 }
 
-#item-list .contact {
+#item-group .contact {
     display: block;
     height: 50px;
     position: relative;
@@ -203,7 +203,7 @@ h3 {
     border-top: 1px solid #ccc;
 }
 
-#item-list .contact .contact-text {
+#item-group .contact .contact-text {
     /*position: absolute;*/
     float: left;
     margin-left: 10px;
@@ -211,7 +211,7 @@ h3 {
     font-size: 100%;
 }
 
-#item-list .contact .destroy {
+#item-group .contact .destroy {
     cursor: pointer;
     /*position: absolute;*/
     float: left;
@@ -221,7 +221,7 @@ h3 {
     width: 20px;
 }
 
-#item-list .contact .alarm {
+#item-group .contact .alarm {
     cursor: pointer;
     /*position: absolute;*/
     float: left;
@@ -231,7 +231,7 @@ h3 {
     width: 20px;
 }
 
-#item-list .contact .display, #item-list .contact .edit {
+#item-group .contact .display, #item-group .contact .edit {
     margin-left: 10px;
     height: 100%;
     width: auto;
@@ -246,42 +246,42 @@ h3 {
     top: -3px;
 }
 
-#item-list .done .contact-text {
+#item-group .done .contact-text {
     text-decoration: line-through;
     color: #999;
 }
 
-#item-list .contact:hover .destroy {
+#item-group .contact:hover .destroy {
     background: url('/destroy.png') no-repeat 0 0;
 }
 
-#item-list .contact .destroy:hover {
+#item-group .contact .destroy:hover {
     background-position: 0 -20px;
 }
 
-#item-list .contact:hover .alarm {
+#item-group .contact:hover .alarm {
     background: url('/alarm.png') no-repeat 0 0;
 }
 
-#item-list .contact .alarm:hover {
+#item-group .contact .alarm:hover {
     background-position: 0 -20px;
 }
 
-#item-list .contact .item-tags {
+#item-group .contact .item-tags {
     overflow: auto;
     float: right;
     margin-right: 8px;
 }
 
-#item-list .contact .item-tags .tag {
+#item-group .contact .item-tags .tag {
     margin-top: 15px;
 }
 
-#item-list .contact .item-tags .removable_tag {
+#item-group .contact .item-tags .removable_tag {
     padding-right: 22px;
 }
 
-#item-list .contact .item-tags .tag .remove {
+#item-group .contact .item-tags .tag .remove {
     position: absolute;
     top: 0;
     right: 4px;
@@ -290,17 +290,17 @@ h3 {
     background: url("/close_16.png") no-repeat 0 center;
 }
 
-#item-list .contact .item-tags .tag .remove:hover {
+#item-group .contact .item-tags .tag .remove:hover {
     background-position: -16px center;
 }
 
-#item-list .contact .item-tags div.addtag {
+#item-group .contact .item-tags div.addtag {
     background: none;
     color: #333;
     border: 1px dashed #999;
 }
 
-#item-list .contact .check {
+#item-group .contact .check {
     float: left;
     /*left: 5px;*/
     width: 25px;
@@ -308,7 +308,7 @@ h3 {
 
 
 
-#item-list .contact .edit input {
+#item-group .contact .edit input {
     margin-left: 35px;
 }
 
