@@ -210,7 +210,7 @@ Template.contact_item.events({
     Session.set('editing_itemname', this._id);
     Meteor.flush(); // update DOM before focus
     activateInput(tmpl.find("#contact-input"));
-  },s
+  },
 
   'click .remove': function (evt) {
     var tag = this.tag;
