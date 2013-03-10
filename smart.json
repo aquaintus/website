@@ -1,0 +1,10 @@
+{
+  "meteor": {
+    "branch": "master"
+  },
+  "packages": {
+    "foundation" : {
+      "path": "/home/mraxilus/development/websites/meteor-foundation"
+    }
+  }
+}  
