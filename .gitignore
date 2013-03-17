@@ -1,4 +1,3 @@
 *.sublime*
-.meteor/local/db
-.smart.lock
-.meteor/.gitignore
+.meteor
+smart.lock
