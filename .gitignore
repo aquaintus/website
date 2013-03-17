@@ -1,3 +1,2 @@
-*.sublime*
-.meteor
-smart.lock
+.meteor/local
+.meteor/meteorite
