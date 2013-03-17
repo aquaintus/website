@@ -7,12 +7,15 @@
   "dependencies": {
     "basePackages": {
       "foundation": {
-        "path": "../meteor-foundation"
+        "git": "https://github.com/aquaintus/meteor-foundation",
+        "branch": "master"
       }
     },
     "packages": {
       "foundation": {
-        "path": "../meteor-foundation"
+        "git": "https://github.com/aquaintus/meteor-foundation",
+        "branch": "master",
+        "commit": "3d788ff921d5469dae9cbd7b4bd139b47d0e0b9b"
       }
     }
   }

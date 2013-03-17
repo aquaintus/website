@@ -4,7 +4,7 @@
   },
   "packages": {
     "foundation" : {
-      "path": "/home/aquaintus/meteor-foundation"
+      "git": "https://github.com/aquaintus/meteor-foundation"
     }
   }
 }  
