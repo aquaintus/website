@@ -49,6 +49,27 @@
   </div>
   <!-- end header and nav -->
 
+  <div class="row">
+  <div class="large-8 large-centered columns">
+    <dl class="sub-nav">
+
+      <style>
+        .sub-nav dd {
+          margin-left: 1em;
+        }
+      </style>
+
+      <dt>filter:</dt>
+      <dd class="active"><a href="#">all</a></dd>
+      <dd><a href="#">united kingdom</a></dd>
+      <dd><a href="#">bath startup weekend</a></dd>
+      <dd><a href="#">bermuda</a></dd>
+      <dd><a href="#">bermuda high school</a></dd>
+      <dd><a href="#">...</a></dd>
+    </dl>
+  </div>
+  </div>
+
 
   <!-- main body -->
   <div class="row">
@@ -106,8 +127,8 @@
       <p><strong><a href="">Alexandria Ferrero</a></strong></p>
 
       <ul class="inline-list">
-        <li><a href="">united states</a></li>
-        <li><a href="">game developer conference</a></li>
+        <li><a href="">united kingdom</a></li>
+        <li><a href="">university of bristol</a></li>
       </ul>
     </div>
     </div>
@@ -119,36 +140,35 @@
 
   <!--modal-->
   <div id="myModal" class="xlarge reveal-modal">
-    <!--<h2>Awesome. I have it.</h2>
-    <p class="lead">Your couch.  It is mine.</p>
-    <p>Im a cool paragraph that vive dentro de an aún más genial modal. Wins </p>-->
-             <a class="close-reveal-modal">&#215;</a>
-  <div class="row">
-        <div class="large-2 columns "><img src="http://placekitten.com/65/65" /></div>
-        <div class="large-10 columns ">
-          <p><strong><a href="" data-reveal-id="myModal">Alexander O'neil</a></strong></p>
+    <a class="close-reveal-modal">&#215;</a>
 
+    <div class="row">
+      <div class="large-2 columns"><img src="http://placekitten.com/65/65"/></div>
+      <div class="large-10 columns">
+        <p><strong>
+          <a href="" data-reveal-id="myModal">Alexander O'neil</a>
+        </strong></p>
       </div>
-  </div>
+    </div>
 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="section-container auto" data-section>
+    <div class="row">
+      <div class="large-12 columns">
+      <div class="section-container auto" data-section data-options="deep_linking: true">
   <section class="section">
-    <p class="title"><a href="#panel1">Section 1</a></p>
-    <div class="content">
+    <p class="title"><a href="#section1">Section 1</a></p>
+    <div class="content" data-slug="section1">
       <p>Content of section 1.</p>
     </div>
   </section>
   <section class="section">
-    <p class="title"><a href="#panel2">Section 2</a></p>
-    <div class="content">
+    <p class="title"><a href="#section2">Section 2</a></p>
+    <div class="content" data-slug="section2">
       <p>Content of section 2.</p>
     </div>
   </section>
 </div>
-    </div>
 </div>
+    </div>
 </div>
   <!-- end modal -->
 
