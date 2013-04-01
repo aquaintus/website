@@ -25,23 +25,27 @@
 
   <div class="row">
     <div class="large-12 columns">
-
-      <div class="panel">
-
-        <div class="row">
-          <div class="small-2 columns">
-            <h3>aquaintus</h3>
-          </div>
-
-          <div class="small-10 columns">
+      <div class="panel" style="padding-bottom:0.3em">
             <form>
-              <input type="text" placeholder="who are you looking for?">
+              <div class="row">
+                <div class="small-2 columns">
+                  <label for="right-label" class="right inline">aquaintus</label>
+                </div>
+
+                <div class="small-8 columns">
+                  <input type="text" id="right-label" placeholder="who are you looking for?">
+                </div>
+
+                <div class="small-1 columns">
+                  <a href="#" class="button postfix">search</a>
+                </div>
+
+                <div class="small-1 columns">
+                  <a href="#" class="button postfix">add</a>
+                </div>
+              </div>
             </form>
-          </div>
-        </div>
-
       </div> <!--panel-->
-
     </div> <!-- columns -->
   </div> <!-- row -->
 
@@ -53,17 +57,17 @@
  <!-- Nav Sidebar -->
         <!-- Main Feed -->
     <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="large-9 columns large-centered">
+    <div class="large-8 columns large-centered">
 
       <!-- Feed Entry -->
       <div class="row">
-        <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
-        <div class="small-9 large-10 columns ">
-          <p><strong>Alexander O'neil</strong></p>
+        <div class="large-2 columns "><img src="http://placekitten.com/65/65" /></div>
+        <div class="large-10 columns ">
+          <p><strong><a href="" data-reveal-id="myModal">Alexander O'neil</a></strong></p>
+
           <ul class="inline-list">
-            <li><a href="">cyclers</a></li>
-            <li><a href="">engineers</a></li>
-            <li><a href="">skiiers</a></li>
+            <li><a href="">united kingdom</a></li>
+            <li><a href="">bath startup weekend</a></li>
           </ul>
         </div>
       </div>
@@ -74,13 +78,29 @@
 
       <!-- Feed Entry -->
       <div class="row">
-        <div class="small-3 large-2 columns "><img src="http://placehold.it/80x80&text=[img]" /></div>
-        <div class="small-9 large-10 columns ">
-          <p><strong>Alexander Thompson</strong></p>
+        <div class="large-2 columns "><img src="http://placekitten.com/64/64" /></div>
+        <div class="large-10 columns ">
+          <p><strong><a href="">Alexander Thompson</a></strong></p>
+
           <ul class="inline-list">
-            <li><a href="">engineers</a></li>
-            <li><a href="">gamers</a></li>
-            <li><a href="">swimmers</a></li>
+            <li><a href="">bermuda</a></li>
+            <li><a href="">bermuda high school</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- End Feed Entry -->
+
+      <hr />
+
+      <!-- Feed Entry -->
+      <div class="row">
+        <div class="large-2 columns "><img src="http://placekitten.com/63/63" /></div>
+        <div class="large-10 columns ">
+          <p><strong><a href="">Alexandria Ferrero</a></strong></p>
+
+          <ul class="inline-list">
+            <li><a href="">united states</a></li>
+            <li><a href="">game developer conference</a></li>
           </ul>
         </div>
       </div>
@@ -92,6 +112,7 @@
 
   <!-- Footer -->
 
+  <!--
   <footer class="row">
     <div class="large-12 columns">
       <hr />
@@ -109,6 +130,15 @@
       </div>
     </div>
   </footer>
+  -->
+
+  <!--modal-->
+  <div id="myModal" class="large reveal-modal">
+    <h2>Awesome. I have it.</h2>
+    <p class="lead">Your couch.  It is mine.</p>
+    <p>Im a cool paragraph that vive dentro de an aún más genial modal. Wins </p>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
 
   <script>
   document.write('<script src=js/vendor/' +
