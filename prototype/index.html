@@ -22,55 +22,99 @@
 <body>
 
   <!-- header and nav -->
-  <div class="row">
-  <div class="large-12 columns">
-    <div class="panel" style="padding-bottom:0.3em">
-      <form>
-        <div class="row">
-        <div class="small-2 columns">
-          <label for="right-label" class="right inline">aquaintus</label>
-        </div>
+  <div class="fixed">
+  <nav class="top-bar">
+  <ul class="title-area">
+    <!-- Title Area -->
+    <li class="name">
+      <h1><a href="#">aquaintus</a></h1>
+    </li>
 
-        <div class="small-8 columns">
-          <input type="text" id="right-label" placeholder="i'm looking for...">
-        </div>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
+  </ul>
 
-        <div class="small-1 columns">
-          <a href="#" class="button postfix">search</a>
-        </div>
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="divider"></li>
 
-        <div class="small-1 columns">
-          <a href="#" class="button postfix">add</a>
-        </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  </div>
+      <li class="has-form">
+        <form>
+          <div class="row collapse">
+            <div class="small-8 columns">
+              <input type="text" placeholder="i'm looking for...">
+            </div>
+            <div class="small-4 columns">
+              <a href="#" class="button postfix radius">search</a>
+            </div>
+          </div>
+        </form>
+      </li>
+    </ul>
+
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="divider show-for-small"></li>
+      <li class="has-form">
+        <a class="button radius" href="#">login</a>
+      </li>
+    </ul>
+  </section>
+</nav>
+</div>
   <!-- end header and nav -->
+
+
+  <!-- sub nav filter -->
+  <div class="row">
+  <div class="large-10 large-centered columns">
+    <dl class="sub-nav">
+
+      <style>
+        .sub-nav {
+          margin-top: 0.75em;
+        }
+        .sub-nav dd {
+          margin-left: 1em;
+        }
+      </style>
+
+      <dt>filter:</dt>
+      <dd class="active"><a href="#">all</a></dd>
+      <dd><a href="#">united kingdom</a></dd>
+      <dd><a href="#">bermuda</a></dd>
+      <dd><a href="#">park</a></dd>
+      <dd><a href="#">pet club</a></dd>
+      <dd><a href="#">vet</a></dd>
+      <dd><a href="#">...</a></dd>
+    </dl>
+  </div>
+  </div>
+  <!-- end sub nav filter -->
 
 
   <!-- main body -->
   <div class="row">
-  <div class="large-8 columns large-centered">
+  <div class="large-10 large-centered columns">
 
     <!-- feed entry -->
     <div class="row">
     <div class="large-2 columns">
-      <img src="http://placekitten.com/65/65" />
+      <img src="http://placekitten.com/129/129" />
     </div>
 
     <div class="large-10 columns">
       <p>
         <strong>
-          <a href="" data-reveal-id="profile-modal">Alexander O'neil</a>
+
+          <a href="" data-reveal-id="profile-modal">annie wanny</a>
         </strong>
       </p>
 
-      <ul class="inline-list">
-        <li><a href="">united kingdom</a></li>
-        <li><a href="">bath startup weekend</a></li>
-      </ul>
+      <p>
+        met at <a href="">park</a> in
+        <a href="">united kingdom</a> about <a href="">4 months</a> ago
+      </p>
     </div>
     </div>
     <!-- end feed entry -->
@@ -80,16 +124,16 @@
     <!-- feed entry -->
     <div class="row">
     <div class="large-2 columns">
-      <img src="http://placekitten.com/64/64"/>
+      <img src="http://placekitten.com/128/128"/>
     </div>
 
     <div class="large-10 columns">
-      <p><strong><a href="">Alexander Thompson</a></strong></p>
+      <p><strong><a href="">frida pida</a></strong></p>
 
-      <ul class="inline-list">
-        <li><a href="">bermuda</a></li>
-        <li><a href="">bermuda high school</a></li>
-      </ul>
+      <p>
+        met at <a href="">vet</a> in
+        <a href="">bermuda</a> about <a href="">5 years</a> ago
+      </p>
     </div>
     </div>
     <!-- end feed entry -->
@@ -99,19 +143,29 @@
     <!-- feed entry -->
     <div class="row">
     <div class="large-2 columns">
-      <img src="http://placekitten.com/63/63" />
+      <img src="http://placekitten.com/127/127" />
     </div>
 
     <div class="large-10 columns">
-      <p><strong><a href="">Alexandria Ferrero</a></strong></p>
+      <p><strong><a href="">lily milly</a></strong></p>
 
-      <ul class="inline-list">
-        <li><a href="">united states</a></li>
-        <li><a href="">game developer conference</a></li>
-      </ul>
+      <p>
+        met at <a href="">pet club</a> in
+        <a href="">united kingdom</a> about <a href="">3 weeks</a> ago
+      </p>
     </div>
     </div>
     <!-- end feed entry -->
+
+    <hr />
+
+    <!-- new feed entry -->
+    <div class="row">
+    <div class="large-3 large-centered columns">
+      <a href="" data-reveal-id="add-contact-modal" class="button radius">add contact</a>
+    </div>
+    </div>
+    <!-- end new feed entry -->
   </div>
   </div>
   <!-- end main body -->
@@ -119,106 +173,102 @@
 
   <!--modal-->
   <div id="profile-modal" class="xlarge reveal-modal">
-  <a class="close-reveal-modal">&#215;</a>
+    <a class="close-reveal-modal">&#215;</a>
   
   <div class="row">
-        <div class="large-12 columns">
-          <h4>Alexander O'Neill</h4>
-        </div>
+  <div class="large-12 columns">
+    <h4>annie wanny</h4>
+  </div>
   </div>
 <!-- Profile Side Bar -->
 
   <div class="row">
-    <div class="large-5 columns">
+  <div class="large-5 columns">
     <div class="panel">
-    
-        <div class="row">
-          <div class="large-6 large-centered columns ">
-            <img src="http://placekitten.com/200/200" />
-          </div>
-        </div>
-        <hr />
+    <div class="row">
+    <div class="large-6 large-centered columns ">
+      <img src="http://placekitten.com/129/129" />
+    </div>
+    </div>
+  <hr />
 
-        <div class="row">
-                 <div class="large-3 columns">
-                  <p> At: </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> Bath Start-up Weekend</p>
-                </div>
-        </div>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> At: </p>
+  </div>
+  <div class="large-9 columns">
+    <p> Bath Start-up Weekend</p>
+  </div>
+  </div>
      
 
-         <div class="row">
-                 <div class="large-3 columns">
-                  <p> Loc: </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> United Kingdom</p>
-                </div>
-        </div>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> Loc: </p>
+  </div>
+  <div class="large-9 columns">
+    <p> United Kingdom</p>
+  </div>
+  </div>
 
-        <div class="row">
-                 <div class="large-3 columns">
-                  <p> When: </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> 4 Months Ago</p>
-                </div>
-        </div>
-        <hr/>
+  <div class="row">
+  <div class="large-3 columns">
+   <p> When: </p>
+  </div>
+  <div class="large-9 columns">
+   <p> 4 Months Ago</p>
+  </div>
+  </div>
+  <hr/>
       
-          <div class="row">
-             <div class="large-3 columns">
-                <p> Last Contact: </p>
-              </div>
-              <div class="large-9 columns">
-                  <p> 12 Days</p>
-              </div>
-        </div>
-        <hr/>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> Last Contact: </p>
+  </div>
+  <div class="large-9 columns">
+    <p> 12 Days</p>
+  </div>
+  </div>
+  <hr/>
 
-       <div class="row">
-                 <div class="large-3 columns">
-                  <p> Job </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> Engineer</p>
-                </div>
-        </div>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> Job </p>
+  </div>
+  <div class="large-9 columns">
+    <p> Engineer</p>
+  </div>
+  </div>
 
-        <div class="row">
-                 <div class="large-3 columns">
-                  <p> Location </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> United Kingdom</p>
-                </div>
-        </div>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> Location </p>
+  </div>
+  <div class="large-9 columns">
+    <p> United Kingdom</p>
+  </div>
+  </div>
 
-        <div class="row">
-                 <div class="large-3 columns">
-                  <p> Studied </p>
-                </div>
-                 <div class="large-9 columns">
-                  <p> Electronics</p>
-                </div>
-        </div>
-
-
-
-    </div>
-    </div>
+  <div class="row">
+  <div class="large-3 columns">
+    <p> Studied </p>
+  </div>
+  <div class="large-9 columns">
+    <p> Electronics</p>
+  </div>
+  </div>
+  </div>
+  </div>
  
 
-        <div class="large-7 columns">
-          <div class="section-container auto" data-section>
-          <section class="section">
-              <p class="title"><a href="#panel1">Tags</a></p>
-              <div class="content">
-                <p>Content of section 1.</p>
-              </div>
-          </section>
+  <div class="large-7 columns">
+  <div class="section-container auto" data-section>
+  <section class="section">
+      <p class="title"><a href="#panel1">Tags</a></p>
+      <div class="content">
+        <p>Content of section 1.</p>
+      </div>
+  </section>
   <section class="section">
     <p class="title"><a href="#panel2">Notes</a></p>
     <div class="content">
@@ -231,28 +281,61 @@
       <p>Content of section 3.</p>
     </div>
   </section>
-    <section class="section">
+  <section class="section">
     <p class="title"><a href="#panel2">Reminders</a></p>
     <div class="content">
       <p>Content of section 4.</p>
     </div>
   </section>
-      <section class="section">
+  <section class="section">
     <p class="title"><a href="#panel2">Contact</a></p>
     <div class="content">
       <p>Content of section 4.</p>
     </div>
   </section>
-</div>
-
-        </div>
   </div>
+  </div>
+</div>
+</div>
+<!-- end modal -->
 
-  <!-- Side Bar -->
+  <!-- add contact modal-->
+  <div id="add-contact-modal" class="xlarge reveal-modal">
+    <a class="close-reveal-modal">&#215;</a>
 
-    <!-- End Side Bar -->
-  <!-- end modal -->
+    <form>
+      <div class="row">
+      <div class="large-12 columns">
+        <fieldset>
+          <legend>full name</legend>
 
+          <input type="text" placeholder="mister pebbles">
+        </fieldset>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="large-12 columns">
+        <div class="row collapse">
+        <div class="small-10 columns">
+          <input type="text" placeholder="type in more information and we'll figure out what it is">
+        </div>
+
+        <div class="small-2 columns">
+          <a href="#" class="button postfix radius">add</a>
+        </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="large-2 large-centered columns">
+          <a href="#" class="button radius">submit</a>
+      </div>
+      </div>
+    </form>
+  </div>
+  <!-- add contact modal-->
 
   <!-- scripts -->
   <script>
