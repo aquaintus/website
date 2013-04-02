@@ -15,6 +15,7 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/foundation.css">
+  <link rel="stylesheet" href="stylesheets/general_foundicons.css"
 
   <script src="js/vendor/custom.modernizr.js"></script>
 </head>
@@ -22,88 +23,65 @@
 <body>
 
   <!-- sub nav filter -->
-  <div class="row">
-  <div class="large-12 columns">
-    <div class="panel">
-      <div class="row">
-      <div class="large-8 columns">
+    <div class="panel fixed" style="padding: 0em">
+      <div class="row" style="margin-top: 1.5em">
+      <div class="small-8 columns">
         <form>
           <div class="row collapse">
             <div class="small-10 columns">
               <input type="text" placeholder="i'm looking for...">
             </div>
+
             <div class="small-2 columns">
-              <a href="#" class="button postfix radius">search</a>
+              <a href="#" class="button postfix radius">
+                <i class="foundicon-search"></i>
+                <style>
+                 .button i {
+                  font-size: 14px;
+                 }
+               </style>
+              </a>
             </div>
           </div>
         </form>
       </div>
 
-      <div class="large-4 columns">
-        <ul class="button-group round even-3">
-          <li><a href="#" class="button prefix">index</a></li>
-          <li><a href="#" class="button postfix">visual</a></li>
-          <li><a href="#" class="button postfix">stats</a></li>
+      <div class="small-4 columns">
+        <ul class="button-group radius even-3">
+          <li><a href="#" class="button prefix"><i class="foundicon-address-book"></i></a></li>
+          <li><a href="#" class="button postfix"><i class="foundicon-photo"></i></a></li>
+          <li><a href="#" class="button postfix"><i class="foundicon-graph"></i></a></li>
         </ul>
       </div>
-
-      <div class="row">
-      <div class="large-12 columns">
-        <dl class="sub-nav">
-
-          <style>
-            .sub-nav {
-              margin: -0.75em 0em;
-            }
-            .sub-nav dd {
-              margin-left: 1em;
-            }
-          </style>
-
-          <dt>filter:</dt>
-          <dd class="active"><a href="#">all</a></dd>
-          <dd><a href="#">artistic</a></dd>
-          <dd><a href="#">hyper</a></dd>
-          <dd><a href="#">united kingdom</a></dd>
-          <dd><a href="#">bermuda</a></dd>
-          <dd><a href="#">park</a></dd>
-          <dd><a href="#">pet club</a></dd>
-          <dd><a href="#">vet</a></dd>
-          <dd><a href="#">...</a></dd>
-        </dl>
-      </div>
-      </div>
     </div>
-  </div>
   </div>
   <!-- end sub nav filter -->
 
 
   <!-- main body -->
-  <div class="row">
+  <div class="row" style="padding-top: 7em">
   <div class="large-10 large-centered columns">
 
     <!-- feed entry -->
+    <div class="panel">
     <div class="row">
     <div class="large-2 columns">
-      <img src="http://placekitten.com/129/129" />
+      <a class="th radius"><img src="http://placekitten.com/129/129" /></a>
     </div>
 
     <div class="large-10 columns">
-      <p>
-        <strong>
+      <h5>
           <a href="" data-reveal-id="profile-modal">annie wanny</a>
-        </strong>
-      </p>
+      </h5>
 
-      <p>
+      <h5 class="subheader">
         met at <a href="">park</a> in
         <a href="">united kingdom</a> about <a href="">4 months</a> ago
-      </p>
+      </h5>
 
       <div class="row">
       <div class="large-12 columns">
-        <ul class="large-block-grid-7">
+        <ul class="large-block-grid-auto">
           <li><a href="" class="label secondary round">cute</a></li>
           <li><a href="" class="label secondary round">hyper</a></li>
           <li><a href="" class="label secondary round">kitten</a></li>
@@ -114,27 +92,27 @@
       </div>
     </div>
     </div>
+    </div>
     <!-- end feed entry -->
 
-    <hr/>
-
     <!-- feed entry -->
+    <div class="panel">
     <div class="row">
     <div class="large-2 columns">
-      <img src="http://placekitten.com/128/128"/>
+      <a class="th radius"><img src="http://placekitten.com/128/128" /></a>
     </div>
 
     <div class="large-10 columns">
-      <p><strong><a href="">frida pida</a></strong></p>
+      <h5><a href="">frida pida</a></h5>
 
-      <p>
+      <h5 class="subheader">
         met at <a href="">vet</a> in
         <a href="">bermuda</a> about <a href="">5 years</a> ago
-      </p>
+      </h5>
 
       <div class="row">
       <div class="large-12 columns">
-        <ul class="large-block-grid-7">
+        <ul class="large-block-grid-auto">
           <li><a href="" class="label secondary round">artistic</a></li>
           <li><a href="" class="label secondary round">fat</a></li>
           <li><a href="" class="label secondary round">gluttonous</a></li>
@@ -144,27 +122,28 @@
       </div>
     </div>
     </div>
+    </div>
     <!-- end feed entry -->
 
-    <hr />
 
     <!-- feed entry -->
+    <div class="panel">
     <div class="row">
-    <div class="large-2 columns">
-      <img src="http://placekitten.com/127/127" />
+    <div class="large-2 columns hide-on-small">
+      <a class="th radius"><img src="http://placekitten.com/127/127" /></a>
     </div>
 
     <div class="large-10 columns">
-      <p><strong><a href="">lily milly</a></strong></p>
+      <h5><a href="">lily milly</a></h5>
 
-      <p>
+      <h5 class="subheader">
         met at <a href="">pet club</a> in
         <a href="">united kingdom</a> about <a href="">3 weeks</a> ago
-      </p>
+      </h5>
 
       <div class="row">
       <div class="large-12 columns">
-        <ul class="large-block-grid-7">
+        <ul class="large-block-grid-auto">
           <li><a href="" class="label secondary round">affectionate</a></li>
           <li><a href="" class="label secondary round">artistic</a></li>
           <li><a href="" class="label secondary round">hyper</a></li>
@@ -177,14 +156,15 @@
       </div>
     </div>
     </div>
+    </div>
     <!-- end feed entry -->
 
-    <hr />
-
     <!-- new feed entry -->
+    <div class="panel">
     <div class="row">
     <div class="large-3 large-centered columns">
       <a href="" data-reveal-id="add-contact-modal" class="button radius">add contact</a>
+    </div>
     </div>
     </div>
     <!-- end new feed entry -->
@@ -205,17 +185,24 @@
 <!-- Profile Side Bar -->
 
   <div class="row">
-  <div class="large-5 columns">
+  <div class="large-4 columns">
     <div class="panel">
     <div class="row">
-    <div class="large-6 large-centered columns ">
+    <div class="large-10 large-centered columns ">
       <img src="http://placekitten.com/129/129" />
     </div>
     </div>
   <hr />
 
+
   <div class="row">
   <div class="large-12 columns">
+
+<div class="section-container accordion" data-section="accordion">
+  <section class="section active">
+    <p class="title"><a href="#">Details</a></p>
+    <div class="content">
+
   <div class="switch tiny round">
     <input id="z" name="switch-z" type="radio" checked>
       <label for="z" onclick="">Social</label>
@@ -225,80 +212,45 @@
 
   <span></span>
   </div>
-  </div>
-  </div>
-
 
   <div class="row">
   <div class="large-3 columns">
-    <p> At: </p>
+    <p><i class="foundicon-location"></i></p>
   </div>
   <div class="large-9 columns">
-    <p> Bath Start-up Weekend</p>
-  </div>
-  </div>
-
-
-  <div class="row">
-  <div class="large-3 columns">
-    <p> Loc: </p>
-  </div>
-  <div class="large-9 columns">
-    <p> United Kingdom</p>
+    <p> Start-up Weekend</p>
   </div>
   </div>
 
   <div class="row">
   <div class="large-3 columns">
-   <p> When: </p>
+   <p><i class="foundicon-clock"></i></p>
   </div>
   <div class="large-9 columns">
    <p> 4 Months Ago</p>
   </div>
   </div>
-  <hr/>
 
   <div class="row">
   <div class="large-3 columns">
-    <p> Last Contact: </p>
-  </div>
-  <div class="large-9 columns">
-    <p> 12 Days</p>
-  </div>
-  </div>
-  <hr/>
-
-  <div class="row">
-  <div class="large-3 columns">
-    <p> Job </p>
-  </div>
-  <div class="large-9 columns">
-    <p> Engineer</p>
-  </div>
-  </div>
-
-  <div class="row">
-  <div class="large-3 columns">
-    <p> Location </p>
+    <p><i class="foundicon-globe"></i></p>
   </div>
   <div class="large-9 columns">
     <p> United Kingdom</p>
   </div>
   </div>
 
-  <div class="row">
-  <div class="large-3 columns">
-    <p> Studied </p>
-  </div>
-  <div class="large-9 columns">
-    <p> Electronics</p>
-  </div>
-  </div>
-  </div>
-  </div>
+      </div>
+  </section>
+</div>
+</div>
+
+  </div><!-- PANEL -->
+  </div><!-- ROW -->
+</div>
 
 
-  <div class="large-7 columns">
+  <div class="large-8 columns">
   <div class="section-container auto" data-section>
   <section class="section">
       <p class="title"><a href="#panel1">Tags</a></p>
@@ -311,7 +263,7 @@
           <input type="text" placeholder="What do they like to do?">
         </div>
         <div class="large-2 columns">
-          <a href="#" class="button postfix round">+ Tag</a>
+          <a href="#" class="button postfix round"><i class="foundicon-plus"></i></a>
         </div>
         </div>
         </div>
@@ -328,28 +280,136 @@
         </ul>
         </div>
       </div>
-
-
-
   </section>
+
   <section class="section">
     <p class="title"><a href="#panel2">Notes</a></p>
     <div class="content">
-      <p>Content of section 2.</p>
-    </div>
+
+      <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+
+          <div class="row">
+          <div class="large-12 columns">
+            <label>Add Note</label>
+            <textarea placeholder="Write something useful..."></textarea>
+          </div>
+          </div>
+
+          <div class="row">
+          <div class="large-12 columns">
+            <ul class="inline-list">
+              <li><a href="#" class="small button radius">Done</a></li>
+              <li><a href="#"><p><i class="foundicon-photo"></i></p></a></li>
+              <li><a href="#"><p><i class="foundicon-mic"></i></p></a></li>
+              <li><a href="#"><p><i class="foundicon-paper-clip"></i></p></a></li>
+              <li><a href="#"><p><i class="foundicon-trash"></i></p></a></li>
+            </ul>
+          </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel radius">
+              <div class="row">
+              <div class="large-12 columns">
+                <p>This is a test note</p>
+              </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+              <div class="large-12 columns">
+                <ul class="inline-list right">
+                  <li><a href="#"><p><i class="foundicon-compass"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-edit"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-trash"></i></p></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel radius">
+              <div class="row">
+              <div class="large-12 columns">
+                <p>This is a considerably longer note that should look pretty interesting and have lots of information test note</p>
+              </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+              <div class="large-12 columns">
+                <ul class="inline-list right">
+                  <li><a href="#"><p><i class="foundicon-compass"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-edit"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-trash"></i></p></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="row">
+        <div class="large-12 columns">
+          <div class="panel radius">
+              <div class="row">
+              <div class="large-12 columns">
+                <p>This is a test note</p>
+              </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+              <div class="large-12 columns">
+                <ul class="inline-list right">
+                  <li><a href="#"><p><i class="foundicon-compass"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-edit"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-trash"></i></p></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="panel radius">
+              <div class="row">
+              <div class="large-12 columns">
+                <p>This is a considerably longer note that should look pretty interesting and have lots of information test note</p>
+              </div>
+              </div>
+              <hr/>
+
+              <div class="row">
+              <div class="large-12 columns">
+                <ul class="inline-list right">
+                  <li><a href="#"><p><i class="foundicon-compass"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-edit"></i></p></a></li>
+                  <li><a href="#"><p><i class="foundicon-trash"></i></p></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div><!-- content -->
   </section>
-  <section class="section">
-    <p class="title"><a href="#panel2">Conversations</a></p>
-    <div class="content">
-      <p>Content of section 3.</p>
-    </div>
-  </section>
-  <section class="section">
-    <p class="title"><a href="#panel2">Reminders</a></p>
-    <div class="content">
-      <p>Content of section 4.</p>
-    </div>
-  </section>
+
+
   <section class="section">
     <p class="title"><a href="#panel2">Contact</a></p>
     <div class="content">
@@ -399,9 +459,15 @@
 
 
       <div class="row">
-      <div class="large-2 large-centered columns">
-          <a href="#" class="button radius">submit</a>
+      <div class="large-2 columns large-offset-4">
+        <a href="#" class="button small radius">save</a>
       </div>
+
+      <div class="large-2 columns">
+        <a href="#" class="button small radius">cancel</a>
+      </div>
+
+      <div class="large-4 columns"></div>
       </div>
     </form>
   </div>

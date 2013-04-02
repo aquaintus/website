@@ -3222,7 +3222,7 @@ kbd {
 
 /* Inline Lists */
 .inline-list {
-  margin: 0 0 1.0625em -1.375em;
+  margin: 0 0 -2.5em -1.375em;
   padding: 0;
   list-style: none;
   overflow: hidden; }
