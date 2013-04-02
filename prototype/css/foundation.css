@@ -1020,7 +1020,8 @@ hr {
   border: solid #dddddd;
   border-width: 1px 0 0;
   clear: both;
-  margin: 1.25em 0 1.1875em;
+  /*margin: 1.25em 0 1.1875em;*/
+  margin: 0.2em 0 0.2em;
   height: 0; }
 
 /* Helpful Typography Defaults */
@@ -3222,7 +3223,7 @@ kbd {
 
 /* Inline Lists */
 .inline-list {
-  margin: 0 0 1.0625em -1.375em;
+  margin: 0 0 -2.5em -1.375em;
   padding: 0;
   list-style: none;
   overflow: hidden; }
