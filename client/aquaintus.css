@@ -1,0 +1,25 @@
+.add-contact a {
+  margin-bottom: 0;
+}
+
+.button i {
+  font-size: 14px;
+}
+
+.search-divider {
+  padding-top: 7em;
+}
+
+.small-icon{
+  font-size: 1em;
+}
+
+.white-text{
+  color: #fffbf2;
+}
+
+.white-title{
+  color: #fffbf2;
+  font-size: 1.4em;
+  font-weight: bold;
+}

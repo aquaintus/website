@@ -1,40 +1,47 @@
-// if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
-  if (Groups.find().count() === 0) {
-    var data = [
-      {name: "Aquaintus",
-       contents: [
-         ["Alex", "Formula 1", "Sushi"],
-         ["Cassie", "Bunnies"],
-         ["Emmauel", "Everything"]
-       ]
+  if (Contacts.find().count() === 0) {
+    var contacts = [
+      {
+        name: "annie wanny",
+        event: "park",
+        location: "bermuda",
+        date: "1 month",
+        image: "http://placekitten.com/129/129",
+        groups: ["ninja", "pussy", "quadrupedal"]
       },
-      {name: "Work",
-       contents: [
-         ["Alex", "Formula 1", "Sushi"],
-         ["Cassie", "Bunnies"],
-         ["Emmauel", "Everything"]
-       ]
-      },
-      {name: "University",
-       contents: [
-         ["Alex", "Formula 1", "Sushi"],
-         ["Cassie", "Bunnies"],
-         ["Emmauel", "Everything"]
-       ]
-      }
+      {
+        name: "frida pida",
+        event: "vet",
+        location: "united kingdom",
+        date: "3 weeks",
+        image: "http://placekitten.com/128/128",
+        groups: ["tom", "quadrupedal"]},
+      {
+        name: "lily milly",
+        event: "laser light chase",
+        location: "living room",
+        date: "4 days",
+        image: "http://placekitten.com/127/127",
+        groups: ["pussy", "tripedal"]}
     ];
 
-    var timestamp = (new Date()).getTime();
-    for (var i = 0; i < data.length; i++) {
-      var group_id = Groups.insert({name: data[i].name});
-      for (var j = 0; j < data[i].contents.length; j++) {
-        var info = data[i].contents[j];
-        Contacts.insert({group_id: group_id,
-                      text: info[0],
-                      timestamp: timestamp,
-                      tags: info.slice(1)});
-        timestamp += 1; // ensure unique timestamp.
+    for(i = 0; i < contacts.length; ++i) {
+      Contacts.insert({
+        name: contacts[i].name,
+        event: contacts[i].event,
+        location: contacts[i].location,
+        date: contacts[i].date,
+        image: contacts[i].image,
+        groups: contacts[i].groups
+      });
+
+      // update groups accordingly
+      groups = contacts[i].groups;
+
+      for (j = 0; j < groups.length; ++j) {
+        if (Groups.find({name: groups[i]}).count() === 0) {
+          Groups.insert({name: groups[i]});
+        }
       }
     }
   }

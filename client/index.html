@@ -1,0 +1,115 @@
+<head>
+  <title>aquaintus</title>
+</head>
+
+
+<body>
+  <!-- search navigation -->
+  <div class="panel fixed">
+    {{> navigation}}
+  </div>
+  <!-- end search navigation -->
+
+
+  <div class="row search-divider"></div>
+
+  {{> main}}
+</body>
+
+<template name="main">
+  <div class="row">
+  <div class="columns small-12">
+    {{#each contacts}}
+      {{> contact}}
+    {{/each}}
+
+    {{> add_contact}}
+  </div>
+  </div>
+</template>
+
+
+<template name="navigation">
+  <div class="row">
+  <div class="columns small-8">
+    <div class="row collapse">
+      <form>
+        <div class="columns small-10">
+          <input type="text" placeholder="i'm looking for...">
+        </div>
+
+
+        <div class="columns small-2">
+          <a class="perform-search button postfix radius" href="#">search</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="columns small-4">
+    <ul class="button-group even-3 radius">
+      <li><a class="view-index button prefix">index</a></li>
+      <li><a class="view-visual button postfix">visual</a></li>
+      <li><a class="view-stats button postfix">stats</a></li>
+    </ul>
+  </div>
+  </div>
+</template>
+
+
+<template name="contact">
+  <div class="panel radius">
+    <div class="row">
+    <div class="columns small-2">
+      <a class="view-contact th radius"><img src="{{image}}"></a>
+    </div>
+
+
+    <div class="columns small-10">
+      <div class="row">
+      <div class="columns small-10">
+        <h4><a class="view-contact" data-reveal-id="profile-modal" href="#">
+          {{name}}
+        </a></h4>
+      </div>
+
+
+      <div class="columns small-2">
+        <a class="edit-contact" data-reveal-id="profile-modal" href="#"><i>edit</i></a>
+      </div>
+      </div>
+
+
+      <h6 class="subheader">
+        met at <a class="view-group" href="#">{{event}}</a> in
+        <a class="view-group" href="#">{{location}}</a> about
+        <a class="view-group" href="#">{{date}}</a> ago
+      </h6>
+
+
+      <div class="row hide-for-small">
+      <div class="columns small-12">
+        <!-- <ul class="small-block-grid-auto">group</ul> -->
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</template>
+
+
+<template name="contact_groups">
+  <li><a class="view-group label secondary round" href="#">{{group_name}}</a></li>
+</template>
+
+
+<template name="add_contact">
+  <div class="panel radius">
+    <div class="row">
+    <div class="columns small-4 small-centered large-3 add-contact">
+      <a class="button radius">add contact</a>
+    </div>
+    </div>
+  </div>
+</template>

@@ -1,5 +1,6 @@
 {
   "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
     "branch": "master"
   },
   "packages": {
@@ -7,4 +8,4 @@
       "git": "https://github.com/aquaintus/meteor-foundation"
     }
   }
-}  
+}
