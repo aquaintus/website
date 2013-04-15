@@ -23,17 +23,18 @@
 <body>
 
   <!-- sub nav filter -->
-    <div class="panel fixed" style="padding: 0em">
+    <div class="panel" style="padding: 0em">
       <div class="row" style="margin-top: 1.5em">
-      <div class="small-8 columns">
+      <div class="small-6 columns">
         <form>
           <div class="row collapse">
             <div class="small-10 columns">
-              <input type="text" placeholder="i'm looking for...">
+              <input type="text" placeholder="looking for...">
             </div>
 
             <div class="small-2 columns">
-              <a href="#" class="button postfix radius">
+              <a name="search"></a>
+              <a href="#" data-magellan-destination="search" class="button postfix radius">
                 <i class="foundicon-search"></i>
                 <style>
                  .button i {
@@ -46,7 +47,7 @@
         </form>
       </div>
 
-      <div class="small-4 columns">
+      <div class="small-6 columns">
         <ul class="button-group radius even-3">
           <li><a href="#" class="button prefix"><i class="foundicon-address-book"></i></a></li>
           <li><a href="#" class="button postfix"><i class="foundicon-photo"></i></a></li>
@@ -59,8 +60,8 @@
 
 
   <!-- main body -->
-  <div class="row" style="padding-top: 7em">
-  <div class="large-10 large-centered columns">
+  <div class="row" >
+  <div class="small-12 columns">
 
     <!-- feed entry -->
             <style>
@@ -78,14 +79,14 @@
               font-weight: bold;
             }
             </style>
-              <div class="panel radius profile-background">
+               <div class="panel radius profile-background">
                 <div class="row">
-                <div class="small-3 columns ">
+                <div class="small-5 large-3 columns ">
                   <a class="th radius"><img src="http://placekitten.com/129/129" /></a>
                 </div>
 
-                <div class="small-9 columns white-text">
-                  <div class="row">
+                <div class="small-7 large-9 columns white-text">
+                  <div class="row collapse">
                   <div class="small-10 large-11 columns">
                     <div class="white-title">Annie Wanny</div>
                   </div>
@@ -96,11 +97,9 @@
                   </div>
 
 
-                  <div class="row">
+                  <div class="row hide-for-small">
                    <ul class="small-block-grid-auto">
                     <li><i class="foundicon-location"></i> Start-up Weekend</li>
-                    <li><i class="foundicon-calendar"></i> 4 Months ago</li>
-                    <li><i class="foundicon-globe"></i> UK</li>
                     <li><i class="foundicon-clock"></i> 12 Days ago</li>
                   </ul>
                   </div> 
@@ -110,16 +109,27 @@
 
               </div>
             </div>
-            <hr/>
 
- <div class="panel radius">
+              <div data-magellan-expedition="fixed">
+              <dl class="sub-nav">
+                <dd data-magellan-arrival="search"><a href="#search">Search</a></dd>
+                <dd data-magellan-arrival="tags"><a href="#tags">Tags</a></dd>
+                <dd data-magellan-arrival="notes"><a href="#notes">Notes</a></dd>
+              </dl>
+            </div>
+        
+
+
+       
+ 
      <div class="row">
-   <div class="section-container accordion" data-section="accordion">
-    <section class="section active">
-      <p class="title"><a href="#">Tags</a></p>
-      <div class="content">
+      <div class="small-12 columns">
+              <a name="tags"></a>      
+         <div class="panel radius">
+ 
+      <p class="title hide-for-small"><a name="tags" href="#">Tags</a></p>
 
-      <div class="row">
+      <div class="row" data-magellan-destination="tags">
         <div class="small-12 columns">
         <div class="row collapse">
         <div class="small-10 columns">
@@ -143,22 +153,21 @@
         </ul>
         </div>
       </div>
-
-      </div>
-    </section>
     </div>
+
   </div>
+</div>
 
 
 
 
 <div class="row">
-<div class="section-container accordion" data-section="accordion">
-  <section class="section active">
-    <p class="title"><a href="#">Notes</a></p>
-    <div class="content">
+  <div class="small-12 columns">
+        <a name="notes"></a>
+    <div class="panel radius">
 
-      <div class="row">
+    <p class="title hide-for-small"><a href="#">Notes</a></p>
+      <div class="row"data-magellan-destination="notes">
       <div class="small-12 columns">
         <div class="panel">
 
@@ -194,7 +203,7 @@
                 <h6>This is a title!</h6>
               </div>
               <div class="small-4 columns">
-                <ul class="inline-list right">
+                <ul class="inline-list right ">
                   <style>
                   .small-icon{
                     font-size: 1em;
@@ -204,6 +213,8 @@
                   <li><a href="#"><i class="foundicon-edit small-icon"></i></a></li>
                   <li><a href="#"><i class="foundicon-remove small-icon"></i></a></li>
                 </ul>
+
+
               </div>
               </div>
               <div class="row">
@@ -285,10 +296,11 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </div>
-</div>
-</div>
+
+
+
 
   
     <!-- end feed entry -->
@@ -392,7 +404,8 @@
     </div>
     <!-- end new feed entry -->
   </div>
-
+</div>
+</div>
   <!-- end main body -->
 
 
@@ -417,11 +430,11 @@
 <div class="panel radius profile-background">
     <div class="row">
 
-    <div class="small-3 columns">
+    <div class="small-7 large-3 columns">
       <a class="th radius"><img src="http://placekitten.com/129/129" /></a>
     </div>
 
-    <div class="small-9 columns white-text">
+    <div class="small-5 large-9 columns white-text">
       <div class="row">
       <div class="small-9 large-11 columns">
         <div class="white-title">Annie Wanny</div>
@@ -704,6 +717,8 @@
   </script>
 
   <script src="js/foundation.min.js"></script>
+  <script src="js/foundation/foundation.magellan.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
 
   <script>
     $(document).foundation();
